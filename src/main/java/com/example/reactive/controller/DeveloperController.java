@@ -12,7 +12,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @AllArgsConstructor
-@CrossOrigin("http://localhost:8081")
+@CrossOrigin("http://localhost:8080")
 @RestController
 @RequestMapping("/api/developer")
 public class DeveloperController {
@@ -45,7 +45,7 @@ public class DeveloperController {
 
     @PostMapping("/saveSkill")
     @ResponseStatus(HttpStatus.OK)
-    public Mono<DeveloperSkillDto> saveSkills(DeveloperSkillDto dto) {
+    public Mono<DeveloperSkillDto> saveSkills(@RequestBody DeveloperSkillDto dto) {
         return relDeveloperSkillService.saveDeveloperSkills(dto);
     }
 

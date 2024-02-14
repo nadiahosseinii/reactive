@@ -9,7 +9,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @AllArgsConstructor
-@CrossOrigin("http://localhost:8081")
+@CrossOrigin("http://localhost:8080")
 @RestController
 @RequestMapping("/api/skills")
 public class SkillController {
