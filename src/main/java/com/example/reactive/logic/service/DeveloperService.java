@@ -2,34 +2,32 @@ package com.example.reactive.logic.service;
 
 import com.example.reactive.access.domain.Developer;
 import com.example.reactive.access.repository.DeveloperRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@AllArgsConstructor
 @Service
 public class DeveloperService {
-    private DeveloperRepository repo;
+    private DeveloperRepository developerRepository;
 
     public Flux<Developer> readAll() {
-        return repo.findAll();
+        return developerRepository.findAll();
     }
 
     public Mono<Developer> readById(Long id) {
-        return repo.findById(id);
-    }
-
-    public Flux<Developer> readByName(String name) {
-        return repo.readByName(name);
+        return developerRepository.findById(id);
     }
 
     public Mono<Developer> save(Developer developer) {
-        return repo.save(developer);
+        return developerRepository.save(developer);
     }
 
     public Mono<Developer> deleteById(Long id) {
-        return repo.findById(id)
+        return developerRepository.findById(id)
                 .flatMap(developer ->
-                        repo.delete(developer)
+                        developerRepository.delete(developer)
                                 .thenReturn(developer));
     }
 
