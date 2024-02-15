@@ -1,11 +1,16 @@
 package com.example.reactive.access.domain;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+@Setter
+@Getter
 @Table("skill")
 public class Skill {
+    @Id
     @Column("id")
     private Long id;
     @Column("title")
@@ -23,19 +28,4 @@ public class Skill {
         this.title = name;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 }

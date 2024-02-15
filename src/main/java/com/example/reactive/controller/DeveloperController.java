@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 @CrossOrigin("http://localhost:8080")
 @RestController
-@RequestMapping("/api/developer")
+@RequestMapping("/api/developers")
 public class DeveloperController {
     private DeveloperService developerService;
     private RelDeveloperSkillService relDeveloperSkillService;
